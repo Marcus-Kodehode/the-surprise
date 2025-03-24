@@ -8,8 +8,9 @@ html, body, #root {
   height: 100%;
   width: 100%;
   font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
+  overflow: hidden; /* hindrer både X og Y scroll */
 }
+
 
 /* 👋 Standard container med levende bakgrunn */
 .container {
