@@ -1,209 +1,216 @@
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  box-sizing: border-box; /* Sørger for at padding og border inkluderes i elementets totale bredde/høyde */
+  padding: 0;             /* Fjerner standard innvendig margin */
+  margin: 0;              /* Fjerner standard ytre margin */
 }
 
 html, body, #root {
-  height: 100%;
-  width: 100%;
-  font-family: 'Poppins', sans-serif;
-  overflow: hidden; /* hindrer både X og Y scroll */
+  height: 100%; /* Fyller hele skjermhøyden */
+  width: 100%;  /* Fyller hele skjermbredden */
+  font-family: 'Poppins', sans-serif; /* Setter global font */
+  overflow: hidden; /* Hindrer scrolling (viktig for party-effektene) */
 }
 
-
-/* 👋 Standard container med levende bakgrunn */
+/* 📦 Hovedcontainer for appen */
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-  padding: 1rem;
-  background: linear-gradient(135deg, #f0f4f8, #e4ecf7, #f2f6fc);
-  background-size: 300% 300%;
-  animation: subtleFlow 20s ease infinite;
-  position: relative;
+  display: flex; /* Bruker Flexbox for layout */
+  flex-direction: column; /* Plasserer innhold vertikalt */
+  justify-content: center; /* Sentrerer innhold vertikalt */
+  align-items: center; /* Sentrerer innhold horisontalt */
+  height: 100vh; /* Tar opp hele høyden på viewport */
+  text-align: center; /* Sentrerer tekst */
+  padding: 1rem; /* Litt luft rundt innholdet */
+  background: linear-gradient(135deg, #f0f4f8, #e4ecf7, #f2f6fc); /* Lys gradientbakgrunn */
+  background-size: 300% 300%; /* Zoomer inn gradienten for animasjon */
+  animation: subtleFlow 20s ease infinite; /* Flytter bakgrunn sakte for “levende” følelse */
+  position: relative; /* Gjør det mulig å plassere elementer absolutt inni containeren */
 }
 
+/* 🌊 Animasjon for rolig gradient-bevegelse */
 @keyframes subtleFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
+/* 🥳 Container med mer liv når det er bursdag */
 .container.party {
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
-  background-size: 600% 600%;
-  animation: gradientFlow 15s ease infinite;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1); /* Mer fargerik og rosa bakgrunn */
+  background-size: 600% 600%; /* Ekstra zoom for smooth bevegelse */
+  animation: gradientFlow 15s ease infinite; /* Litt raskere animasjon */
 }
 
+/* 🌈 Fest-gradient-animasjon */
 @keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* 🎁 Wiggle animasjon */
+/* 🎁 “Wiggle” animasjon for gaven ved tittelen */
 .wiggle {
-  display: inline-block;
-  animation: wiggle 2s ease-in-out infinite;
+  display: inline-block; /* Trengs for at animasjonen fungerer */
+  animation: wiggle 2s ease-in-out infinite; /* Roterer frem og tilbake kontinuerlig */
 }
 
 @keyframes wiggle {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(5deg); }
-  75% { transform: rotate(-5deg); }
+  0%, 100% { transform: rotate(0deg); } /* Start og slutt – ingen rotasjon */
+  25%      { transform: rotate(5deg); } /* Litt til høyre */
+  75%      { transform: rotate(-5deg); } /* Litt til venstre */
 }
 
-/* ✍️ Inputs */
+/* 🧾 Input-feltene (navn, fødselsdato, dagens dato) */
 input {
-  padding: 0.5rem;
-  font-size: 1rem;
-  margin-bottom: 0.7rem;
-  width: 250px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  padding: 0.5rem; /* Innvendig padding */
+  font-size: 1rem; /* Størrelse på tekst i feltet */
+  margin-bottom: 0.7rem; /* Litt luft under hvert input */
+  width: 250px; /* Fast bredde for uniform stil */
+  border: 1px solid #ccc; /* Lys grå kant */
+  border-radius: 6px; /* Litt avrundede hjørner */
 }
 
-/* 📝 Labels */
+/* 🏷️ Tekstene over inputfeltene */
 .label {
-  font-size: 0.9rem;
-  margin-top: 1rem;
-  margin-bottom: 0.2rem;
-  align-self: flex-start;
-  margin-left: calc(50% - 125px);
+  font-size: 0.9rem; /* Litt mindre enn vanlig tekst */
+  margin-top: 1rem; /* Luft over */
+  margin-bottom: 0.2rem; /* Luft under */
+  align-self: flex-start; /* Plasserer teksten til venstre (i forhold til flex-containeren) */
+  margin-left: calc(50% - 125px); /* Matcher input-feltets bredde (250px) og sentrerer label */
 }
 
-/* 🔘 Knapp */
+/* 🔘 Vanlig knapp (check) */
 button {
-  background: linear-gradient(to right, #ffffff, #f7f8fa);
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  padding: 0.6rem 1.5rem;
-  font-size: 1.1rem;
-  color: #333;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  background: linear-gradient(to right, #ffffff, #f7f8fa); /* Lys gradient som bakgrunn */
+  border: 1px solid #ccc; /* Enkel grå kant */
+  border-radius: 12px; /* Runde kanter */
+  padding: 0.6rem 1.5rem; /* God høyde og bredde */
+  font-size: 1.1rem; /* Litt større tekst */
+  color: #333; /* Mørk tekst */
+  transition: all 0.3s ease; /* Myk overgang på hover */
+  cursor: pointer; /* Hånd-peker når man holder over */
 }
 
 button:hover {
-  background: #eaeef2;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  background: #eaeef2; /* Litt mørkere grå ved hover */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08); /* Myk skygge rundt knappen */
 }
 
-/* 💬 Melding */
+/* 💬 Vanlig melding (bursdag eller hverdagslig) */
 .message {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  font-weight: bold;
+  margin-top: 1rem; /* Luft over */
+  font-size: 1.2rem; /* Litt større enn vanlig tekst */
+  font-weight: bold; /* Fet skrift */
 }
 
+/* 🎊 Festlig bursdagsmelding */
 .message.party {
-  font-family: 'Pacifico', cursive;
-  font-size: 2.2rem;
-  color: #fff;
-  text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff99cc;
-  animation: bounce 1s ease infinite, tracking-in-expand 1.5s ease-in-out both;
+  font-family: 'Pacifico', cursive; /* Morsom og håndskrevet font */
+  font-size: 2.2rem; /* Stor og tydelig */
+  color: #fff; /* Hvit tekst */
+  text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff99cc; /* Glødende neon-effekt */
+  animation: bounce 1s ease infinite, tracking-in-expand 1.5s ease-in-out both; /* Kombinerte effekter */
 }
 
-/* 🔁 Return-knapp */
+/* 🔁 Return-knapp (vises kun ved bursdag) */
 .return-btn {
   margin-top: 2rem;
   padding: 0.8rem 1.5rem;
   font-size: 1.1rem;
-  background: linear-gradient(to right, #ff66cc, #ff99cc);
-  border: none;
+  background: linear-gradient(to right, #ff66cc, #ff99cc); /* Rosa gradient */
+  border: none; /* Ingen kant */
   color: white;
-  border-radius: 50px;
+  border-radius: 50px; /* Ekstra runde hjørner */
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.5); /* Glødende skygge */
+  transition: transform 0.2s ease, box-shadow 0.3s ease; /* Smooth hover-effekt */
 }
 
 .return-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(255, 105, 180, 0.8);
+  transform: scale(1.05); /* Forstørrer knappen litt */
+  box-shadow: 0 0 25px rgba(255, 105, 180, 0.8); /* Mer intens glød */
 }
 
-/* 🎈 Ballonger */
+/* 🎈 Ballongene som svever oppover */
 .balloon {
-  position: absolute;
-  width: 40px;
-  height: 50px;
-  border-radius: 50% 50% 45% 45%;
-  animation: floatUp 10s ease-in-out infinite;
-  opacity: 0.85;
-  z-index: 2;
-  top: 100%;
+  position: absolute;             /* Plasseres uavhengig av annen layout */
+  width: 40px;                    /* Fast bredde på ballongen */
+  height: 50px;                   /* Fast høyde på ballongen */
+  border-radius: 50% 50% 45% 45%; /* Gir ballongen avrundet, oval form */
+  animation: floatUp 10s ease-in-out infinite; /* Flyter oppover i løkke */
+  opacity: 0.85;                  /* Litt gjennomsiktig for en mykere effekt */
+  z-index: 2;                     /* Ligger foran stjerner, men bak tekst */
+  top: 100%;                      /* Starter helt nede utenfor synlig område */
 }
 
+/* 🎈 Ballongbevegelse */
 @keyframes floatUp {
   0% {
-    transform: translateY(0) translateX(0);
-    opacity: 0.85;
+    transform: translateY(0) translateX(0); /* Start: nederst, rett opp */
+    opacity: 0.85;                          /* Synlig */
   }
   50% {
-    transform: translateY(-60vh) translateX(15px);
+    transform: translateY(-60vh) translateX(15px); /* Midtveis: halvveis opp og litt til siden */
   }
   100% {
-    transform: translateY(-120vh) translateX(-10px);
-    opacity: 0;
+    transform: translateY(-120vh) translateX(-10px); /* Slutt: flyr av toppen av skjermen */
+    opacity: 0;                                       /* Fader ut */
   }
 }
 
-/* ✨ Stjerner */
+/* ✨ Små stjerner som svever opp */
 .star {
   position: absolute;
-  color: #ffffff;
-  font-size: 12px;
-  opacity: 0.4;
+  color: #ffffff;                  /* Hvit stjerne */
+  font-size: 12px;                 /* Liten størrelse */
+  opacity: 0.4;                    /* Litt gjennomsiktig for glød-effekt */
   animation: sparkleFloat linear infinite;
-  z-index: 1;
+  z-index: 1;                      /* Ligger bak ballonger og tekst */
   top: 100%;
 }
 
+/* ✨ Bevegelse for stjerner */
 @keyframes sparkleFloat {
   0% {
-    transform: translateY(0);
-    opacity: 0.3;
+    transform: translateY(0);      /* Start nederst */
+    opacity: 0.3;                  /* Svakt synlig */
   }
   100% {
-    transform: translateY(-130vh);
-    opacity: 0;
+    transform: translateY(-130vh); /* Flyr enda lengre opp enn ballonger */
+    opacity: 0;                    /* Fades bort */
   }
 }
 
-/* 🎁 Gaver */
+/* 🎁 Gaver som flyr og roterer */
 .gift {
   position: absolute;
-  font-size: 20px;
+  font-size: 20px;                 /* Litt større emoji enn stjerne */
   opacity: 0.8;
   animation: floatGift linear infinite;
   z-index: 2;
   top: 100%;
 }
 
+/* 🎁 Bevegelse for gaver */
 @keyframes floatGift {
   0% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0) rotate(0deg);   /* Start: rett opp og ingen rotasjon */
     opacity: 0.8;
   }
   100% {
-    transform: translateY(-120vh) rotate(360deg);
+    transform: translateY(-120vh) rotate(360deg); /* Flyr opp og snurrer en hel runde */
     opacity: 0;
   }
 }
 
-/* 🎯 Effekter */
+/* 🕺 Bursdagsmelding-animasjoner */
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%, 100% { transform: translateY(0); }   /* Start og slutt på samme sted */
+  50%      { transform: translateY(-10px); } /* Liten sprett opp i midten */
 }
 
+/* 🧙‍♂️ Ekspanderer tekst og gjør den “fade inn” */
 @keyframes tracking-in-expand {
-  0% { letter-spacing: -0.5em; opacity: 0; }
-  40% { opacity: 0.6; }
-  100% { letter-spacing: normal; opacity: 1; }
+  0%   { letter-spacing: -0.5em; opacity: 0; }      /* Start med tett tekst og usynlig */
+  40%  { opacity: 0.6; }                            /* Fader inn litt */
+  100% { letter-spacing: normal; opacity: 1; }      /* Full synlighet og normal bokstavavstand */
 }
