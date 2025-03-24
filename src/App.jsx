@@ -55,21 +55,28 @@ function App() {
 
     // Sjekker om dag og måned matcher -> det er bursdag!
     if (birthDay === todayDay && birthMonth === todayMonth) {
-      const age = currentYear - birthYear; // Regner ut hvor gammel brukeren blir i år
-
-      // Sjekker om brukeren er deg, Marcus – viser spesialmelding
-      if (["marcus", "joakim"].includes(name.trim().toLowerCase())) {
+      const age = currentYear - birthYear;
+      const trimmedName = name.trim().toLowerCase(); // Renset navn brukt i flere sjekker
+    
+      // 💬 Spesialmelding for Marcus og Joakim (admin-style)
+      if (["marcus", "joakim"].includes(trimmedName)) {
         setMessage(`👑 Happy Birthday to the code wizard himself, Marcus! 🎉 You’ve officially leveled up to age ${age} – may your bugs be few and your coffee forever strong ☕⚡`);
+      
+      // 🩷 Søt gratulasjon til Sylivia (men med vanlig musikk)
+      } else if (trimmedName === "sylivia") {
+        setMessage(`🌸 Happy Birthday, Sylivia! 🎂 Wishing you a day full of smiles, love and soft cake vibes 💖 Enjoy turning ${age} today!`);
+    
+      // 🎉 Vanlig bursdagsmelding for alle andre
       } else {
-        // Hvis ikke Marcus: tilfeldig emoji og standard gratulasjonsmelding
         const emojis = ["🎉", "🎂", "🥳", "🎈", "🎊"];
         const emoji = emojis[Math.floor(Math.random() * emojis.length)];
         setMessage(`Happy Birthday, ${name}! ${emoji} You turn ${age} today!`);
       }
-
-      setIsBirthday(true); // Aktiverer party-modus
-      launchConfetti(); // Starter konfetti-effekten
-    } else {
+    
+      setIsBirthday(true); // Aktiverer party
+      launchConfetti();    // Starter konfetti
+    }
+     else {
       // Hvis det ikke er bursdag – vis en hyggelig hilsen
       setMessage(`Wishing you a great day, ${name}! 😊`);
       setIsBirthday(false);
