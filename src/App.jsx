@@ -60,10 +60,15 @@ function App() {
     
       // 💬 Spesialmelding for Marcus og Joakim (admin-style)
       if (["marcus", "joakim"].includes(trimmedName)) {
-        setMessage(`👑 Happy Birthday to the code wizard himself, Marcus! 🎉 You’ve officially leveled up to age ${age} – may your bugs be few and your coffee forever strong ☕⚡`);
+        // Lag en tilpasset tittel per person
+        const title = trimmedName === "marcus"
+          ? "the code wizard himself"
+          : "the legend himself";
       
+        setMessage(`👑 Happy Birthday to ${title}, ${name.trim()}! 🎉 You’ve officially leveled up to age ${age} – may your bugs be few and your coffee forever strong ☕⚡`);
+      }      
       // 🩷 Søt gratulasjon til Sylivia (men med vanlig musikk)
-      } else if (trimmedName === "sylivia") {
+       else if (trimmedName === "sylivia") {
         setMessage(`🌸 Happy Birthday, Sylivia! 🎂 Wishing you a day full of smiles, love and soft cake vibes 💖 Enjoy turning ${age} today!`);
     
       // 🎉 Vanlig bursdagsmelding for alle andre
