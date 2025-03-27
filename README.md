@@ -73,6 +73,10 @@ src/ ├── App.jsx ← hovedkomponent ├── App.css ← komplett styling
 Marcus @ Kodehode  
 _"Som elsker å bygge små, rare, visuelle ting som gjør folk glade – uten at de vet hva som kommer."_
 
+// 💍 One bug to find them,
+// 🔥 One fix to bring them all,
+// 💡 And in the darkness bind them.
+
 ---
 
 ## 📄 Lisens
